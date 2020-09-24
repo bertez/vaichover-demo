@@ -103,6 +103,11 @@ function getUserLocation() {
 
 function main() {
   showPanel(permission);
+  window.onblur = function () {
+    window.onfocus = function () {
+      location.reload(true);
+    };
+  };
 
   if (localStorage.getItem("permission") === "ok") {
     getUserLocation();
